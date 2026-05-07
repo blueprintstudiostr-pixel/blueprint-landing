@@ -62,6 +62,12 @@
       box-shadow: 0 20px 45px rgba(0, 0, 0, 0.35);
       backdrop-filter: blur(10px);
     }
+    .architecture-grid {
+      background-image:
+        linear-gradient(rgba(104, 151, 236, 0.15) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(104, 151, 236, 0.15) 1px, transparent 1px);
+      background-size: 26px 26px;
+    }
     @keyframes grainShift {
       0% { transform: translate(0, 0); }
       25% { transform: translate(-0.8%, 0.8%); }
@@ -113,6 +119,44 @@
           <div class="mt-5 grid gap-3 text-zinc-300">
             <p data-i18n="why.line1" class="text-base leading-relaxed md:text-lg"></p>
             <p data-i18n="why.line2" class="text-base leading-relaxed md:text-lg"></p>
+          </div>
+        </div>
+      </section>
+
+      <section id="architecture" class="mx-auto w-full max-w-7xl px-6 pb-14">
+        <div class="glass architecture-grid overflow-hidden rounded-3xl p-6 md:p-8">
+          <h2 data-i18n="architecture.title" class="text-2xl font-semibold text-white md:text-3xl"></h2>
+          <p data-i18n="architecture.subtitle" class="mt-3 max-w-3xl text-sm leading-relaxed text-zinc-300"></p>
+          <div class="mt-6 overflow-x-auto">
+            <svg viewBox="0 0 1100 280" class="min-w-[860px] w-full">
+              <defs>
+                <linearGradient id="boxFill" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="rgba(24,24,30,0.9)" />
+                  <stop offset="100%" stop-color="rgba(24,24,30,0.55)" />
+                </linearGradient>
+                <marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+                  <path d="M0,0 L8,4 L0,8 z" fill="#6b9cf5"></path>
+                </marker>
+              </defs>
+              <rect x="30" y="40" width="300" height="190" rx="16" fill="url(#boxFill)" stroke="#6b9cf5" stroke-opacity="0.6" />
+              <rect x="400" y="40" width="300" height="190" rx="16" fill="url(#boxFill)" stroke="#6b9cf5" stroke-opacity="0.6" />
+              <rect x="770" y="40" width="300" height="190" rx="16" fill="url(#boxFill)" stroke="#6b9cf5" stroke-opacity="0.6" />
+
+              <line x1="330" y1="136" x2="392" y2="136" stroke="#6b9cf5" stroke-width="3" marker-end="url(#arrow)" />
+              <line x1="700" y1="136" x2="762" y2="136" stroke="#6b9cf5" stroke-width="3" marker-end="url(#arrow)" />
+
+              <text x="54" y="82" fill="#d4defa" font-size="15" font-family="Inter,Arial,sans-serif" data-i18n="architecture.inputTitle"></text>
+              <text x="54" y="116" fill="#d4defa" font-size="13" font-family="Inter,Arial,sans-serif" data-i18n="architecture.inputLine1"></text>
+              <text x="54" y="142" fill="#d4defa" font-size="13" font-family="Inter,Arial,sans-serif" data-i18n="architecture.inputLine2"></text>
+
+              <text x="424" y="82" fill="#d4defa" font-size="15" font-family="Inter,Arial,sans-serif" data-i18n="architecture.processTitle"></text>
+              <text x="424" y="116" fill="#d4defa" font-size="13" font-family="Inter,Arial,sans-serif" data-i18n="architecture.processLine1"></text>
+              <text x="424" y="142" fill="#d4defa" font-size="13" font-family="Inter,Arial,sans-serif" data-i18n="architecture.processLine2"></text>
+
+              <text x="794" y="82" fill="#d4defa" font-size="15" font-family="Inter,Arial,sans-serif" data-i18n="architecture.outputTitle"></text>
+              <text x="794" y="116" fill="#d4defa" font-size="13" font-family="Inter,Arial,sans-serif" data-i18n="architecture.outputLine1"></text>
+              <text x="794" y="142" fill="#d4defa" font-size="13" font-family="Inter,Arial,sans-serif" data-i18n="architecture.outputLine2"></text>
+            </svg>
           </div>
         </div>
       </section>
@@ -193,18 +237,29 @@
         "why.title": "Neden Master v20.4?",
         "why.line1": "24 yıllık sinema tecrübesinin kodlanmış hali.",
         "why.line2": "ARRI Alexa 35 standartlarında veri yönetimi ve fiziksel devamlılık kontrolü.",
+        "architecture.title": "Blueprint Systems Architecture",
+        "architecture.subtitle": "Sahadan gelen yaratıcı veriyi yapısal bir üretim akışına dönüştüren teknik şema.",
+        "architecture.inputTitle": "INPUT",
+        "architecture.inputLine1": "Senaryo + Ham Görüntü",
+        "architecture.inputLine2": "(ARRI LogC4)",
+        "architecture.processTitle": "PROCESS",
+        "architecture.processLine1": "MASTER v20.4 Engine",
+        "architecture.processLine2": "+ BlueCore AI Analysis",
+        "architecture.outputTitle": "OUTPUT",
+        "architecture.outputLine1": "Fiziksel Devamlılığı",
+        "architecture.outputLine2": "Tamamlanmış Sinematik Final",
         "cards.master": "Professional Film Production Operating System. 24 years of expertise meets AI-driven management.",
         "cards.bluecore": "Continuity Engine for high-end cinematography. Ensuring physical consistency across every frame.",
         "cards.originals": "AI-powered studio productions at ARRI Alexa 35 standards.",
         "pricing.title": "Planlar",
         "pricing.studentLabel": "Öğrenci",
-        "pricing.student": "Geleceğin yönetmenleri için temel araçlar.",
+        "pricing.student": "$0 / Free | Master v20.4 Core Access, 720p Export, Temel AI Asistanı.",
         "pricing.standardLabel": "Standart",
-        "pricing.standard": "Bağımsız yapımlar için profesyonel altyapı.",
+        "pricing.standard": "$29 / ay | Full HD Export, Proje Yönetim Modülü, Standart BlueCore Entegrasyonu.",
         "pricing.proLabel": "Pro",
-        "pricing.pro": "Yüksek bütçeli setler ve tam BlueCore AI entegrasyonu.",
+        "pricing.pro": "$99 / ay | 4K ARRI LogC4 Workflow, Gelişmiş Fiziksel Devamlılık Motoru, MASTER v20.4 Tam Yetki.",
         "pricing.businessLabel": "Business",
-        "pricing.business": "Stüdyolar için sınırsız ölçekleme ve özel destek.",
+        "pricing.business": "Custom | Sınırsız Render, Özel Stüdyo Çözümleri, 7/24 Teknik Destek.",
         "footer.tagline": "Blueprint Studios | Sinematik vizyon ve matematiksel kesinlik bir arada."
       },
       en: {
@@ -220,18 +275,29 @@
         "why.title": "Why Master v20.4?",
         "why.line1": "The coded form of 24 years of cinematic experience.",
         "why.line2": "Data orchestration and physical continuity control at ARRI Alexa 35 standards.",
+        "architecture.title": "Blueprint Systems Architecture",
+        "architecture.subtitle": "A technical diagram converting creative field inputs into a structured production pipeline.",
+        "architecture.inputTitle": "INPUT",
+        "architecture.inputLine1": "Script + Raw Footage",
+        "architecture.inputLine2": "(ARRI LogC4)",
+        "architecture.processTitle": "PROCESS",
+        "architecture.processLine1": "MASTER v20.4 Engine",
+        "architecture.processLine2": "+ BlueCore AI Analysis",
+        "architecture.outputTitle": "OUTPUT",
+        "architecture.outputLine1": "Physically Consistent",
+        "architecture.outputLine2": "Cinematic Final",
         "cards.master": "Professional Film Production Operating System. 24 years of expertise meets AI-driven management.",
         "cards.bluecore": "Continuity Engine for high-end cinematography. Ensuring physical consistency across every frame.",
         "cards.originals": "AI-powered studio productions at ARRI Alexa 35 standards.",
         "pricing.title": "Plans",
         "pricing.studentLabel": "Student",
-        "pricing.student": "Core tools for the directors of tomorrow.",
+        "pricing.student": "$0 / Free | Master v20.4 Core Access, 720p Export, Basic AI Assistant.",
         "pricing.standardLabel": "Standard",
-        "pricing.standard": "Professional infrastructure for independent productions.",
+        "pricing.standard": "$29 / mo | Full HD Export, Project Management Module, Standard BlueCore Integration.",
         "pricing.proLabel": "Pro",
-        "pricing.pro": "Full BlueCore AI integration for high-budget sets.",
+        "pricing.pro": "$99 / mo | 4K ARRI LogC4 Workflow, Advanced Physical Continuity Engine, Full MASTER v20.4 Authority.",
         "pricing.businessLabel": "Business",
-        "pricing.business": "Unlimited studio scaling with dedicated premium support.",
+        "pricing.business": "Custom | Unlimited Rendering, Custom Studio Solutions, 24/7 Technical Support.",
         "footer.tagline": "Blueprint Studios | Cinematic vision and mathematical precision together."
       }
     };
