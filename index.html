@@ -13,16 +13,18 @@
       position: absolute;
       inset: 0;
       background-image:
-        radial-gradient(circle at 70% 25%, rgba(70, 136, 255, 0.3), transparent 40%),
-        linear-gradient(120deg, rgba(33, 88, 173, 0.28), transparent 62%),
-        linear-gradient(180deg, rgba(5, 5, 5, 0.42), rgba(5, 5, 5, 0.95)),
+        radial-gradient(circle at 70% 25%, rgba(70, 136, 255, 0.48), transparent 42%),
+        linear-gradient(120deg, rgba(33, 88, 173, 0.36), transparent 62%),
+        linear-gradient(180deg, rgba(5, 5, 5, 0.3), rgba(5, 5, 5, 0.88)),
         url("assets/banner final.png");
       background-size: cover;
       background-position: center;
-      opacity: 0.28;
-      filter: saturate(0.78) contrast(1.12);
+      opacity: 0.66;
+      filter: saturate(0.9) contrast(1.18);
       mask-image: linear-gradient(180deg, #000 0%, #000 68%, transparent 100%);
       -webkit-mask-image: linear-gradient(180deg, #000 0%, #000 68%, transparent 100%);
+      transform: translateY(var(--hero-shift, 0px));
+      transition: transform 120ms linear;
     }
     .film-grain,
     .scanlines,
@@ -98,8 +100,9 @@
           <span class="text-xs tracking-[0.28em] text-zinc-300 uppercase">Blueprint Studios</span>
         </div>
         <div class="hidden items-center gap-8 text-sm md:flex">
-          <a href="#architecture" data-i18n="nav.architecture" class="text-zinc-300 transition hover:text-white"></a>
-          <a href="#originals" data-i18n="nav.originals" class="text-zinc-300 transition hover:text-white"></a>
+          <a href="#hero" data-i18n="nav.production" class="text-zinc-300 transition hover:text-white"></a>
+          <a href="#architecture" data-i18n="nav.services" class="text-zinc-300 transition hover:text-white"></a>
+          <a href="#originals" data-i18n="nav.portfolio" class="text-zinc-300 transition hover:text-white"></a>
           <a href="#pricing" data-i18n="nav.pricing" class="text-zinc-300 transition hover:text-white"></a>
           <a href="#pricing" data-i18n="nav.plansCta" class="rounded-full border border-blue-400/50 px-3 py-1 text-blue-200 transition hover:border-blue-300 hover:text-white"></a>
         </div>
@@ -108,7 +111,7 @@
     </header>
 
     <main>
-      <section class="mx-auto w-full max-w-7xl px-6 pb-20 pt-16 md:pt-24">
+      <section id="hero" class="mx-auto w-full max-w-7xl px-6 pb-20 pt-16 md:pt-24">
         <div class="max-w-4xl">
           <p data-i18n="hero.kicker" class="mb-4 text-xs tracking-[0.24em] text-zinc-400 uppercase"></p>
           <h1 data-i18n="hero.title" class="text-4xl font-semibold leading-tight text-white md:text-6xl"></h1>
@@ -170,7 +173,7 @@
         <div class="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
           <article class="glass rounded-2xl p-6 transition duration-500 hover:-translate-y-1">
             <p data-i18n="pricing.studentLabel" class="text-sm tracking-[0.2em] text-blue-300 uppercase"></p>
-            <p class="mt-2 text-xl text-white">$0/mo</p>
+            <p class="mt-2 text-xl text-white">$9.99/mo</p>
             <p data-i18n="pricing.studentDesc" class="mt-3 text-sm leading-relaxed text-zinc-300"></p>
           </article>
           <article class="glass rounded-2xl p-6 transition duration-500 hover:-translate-y-1">
@@ -196,13 +199,14 @@
   <script>
     const i18n = {
       tr: {
-        "nav.architecture": "Mimari",
-        "nav.originals": "Blueprint Originals",
+        "nav.production": "Production OS / MASTER v20.4",
+        "nav.services": "Hizmetler",
+        "nav.portfolio": "Portfolyo",
         "nav.pricing": "Fiyatlandırma",
         "nav.plansCta": "Planlar",
         "hero.kicker": "Blueprint Film Production OS",
         "hero.title": "MASTER v20.4: CINEMATIC OPERATING SYSTEM",
-        "hero.subtitle": "Sinematik sanatın geleceğini, veri odaklı prodüksiyon operasyonlarıyla birleştiren profesyonel üretim işletim sistemi.",
+        "hero.subtitle": "Sinematik Sanatın geleceğini, veri odaklı prodüksiyon operasyonlarıyla birleştiren profesyonel üretim işletim sistemi.",
         "architecture.title": "What is it?",
         "architecture.subtitle": "Teknik akış şeması: sahadan gelen girdileri işleyip fiziksel devamlılığı korunmuş sinematik finale dönüştüren üretim çekirdeği.",
         "architecture.inputTitle": "Input",
@@ -215,17 +219,18 @@
         "originals.subtitle": "2.39:1 sinematik oranında proje vitrin alanları.",
         "pricing.title": "Planlar",
         "pricing.studentLabel": "Öğrenci",
-        "pricing.studentDesc": "Geleceğin Yönetmenleri İçin",
+        "pricing.studentDesc": "Geleceğin Yönetmenleri. Master v20.4 Core, 1080p Export, Temel AI Continuity Check.",
         "pricing.standardLabel": "Standart",
-        "pricing.standardDesc": "Proje Yönetimi & BlueCore Temel",
+        "pricing.standardDesc": "Bağımsız Yapımlar. 4K Export, BlueCore AI Full Integration, Storyboard Automation.",
         "pricing.proLabel": "Pro",
-        "pricing.proDesc": "Master v20.4 Tam Yetki & 4K Arri Workflow",
+        "pricing.proDesc": "Profesyonel Setler. Arri LogC4 Workflow, 8K Support, Advanced Physical Continuity Lock, 24/7 Render Priority.",
         "pricing.businessLabel": "Business",
-        "pricing.businessDesc": "Stüdyolar İçin Ölçeklenebilir Çözümler"
+        "pricing.businessDesc": "Büyük Stüdyolar. Unlimited Render, Custom AI Training, Studio-wide License, On-site Support."
       },
       en: {
-        "nav.architecture": "Architecture",
-        "nav.originals": "Blueprint Originals",
+        "nav.production": "Production OS / MASTER v20.4",
+        "nav.services": "Services",
+        "nav.portfolio": "Portfolio",
         "nav.pricing": "Pricing",
         "nav.plansCta": "Plans",
         "hero.kicker": "Blueprint Film Production OS",
@@ -243,13 +248,13 @@
         "originals.subtitle": "Project showcase placeholders in cinematic 2.39:1 frame ratio.",
         "pricing.title": "Pricing",
         "pricing.studentLabel": "Student",
-        "pricing.studentDesc": "For the Directors of Tomorrow",
+        "pricing.studentDesc": "Directors of Tomorrow. Master v20.4 Core, 1080p Export, Basic AI Continuity Check.",
         "pricing.standardLabel": "Standard",
-        "pricing.standardDesc": "Project Management & Core BlueCore",
+        "pricing.standardDesc": "Independent Productions. 4K Export, BlueCore AI Full Integration, Storyboard Automation.",
         "pricing.proLabel": "Pro",
-        "pricing.proDesc": "Full MASTER v20.4 Authority & 4K Arri Workflow",
+        "pricing.proDesc": "Professional Sets. Arri LogC4 Workflow, 8K Support, Advanced Physical Continuity Lock, 24/7 Render Priority.",
         "pricing.businessLabel": "Business",
-        "pricing.businessDesc": "Scalable Solutions for Studios"
+        "pricing.businessDesc": "Large Studios. Unlimited Render, Custom AI Training, Studio-wide License, On-site Support."
       }
     };
 
@@ -265,6 +270,10 @@
     const toggle = document.getElementById("langToggle");
     let lang = "tr";
     applyLanguage(lang);
+    window.addEventListener("scroll", () => {
+      const shift = Math.min(window.scrollY * 0.12, 60);
+      document.documentElement.style.setProperty("--hero-shift", `${shift}px`);
+    });
     toggle.addEventListener("click", () => {
       lang = lang === "tr" ? "en" : "tr";
       applyLanguage(lang);
