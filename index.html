@@ -1,188 +1,154 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MASTER v20.4: CINEMATIC OPERATING SYSTEM</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap");
-    :root { color-scheme: dark; }
-    html { scroll-behavior: smooth; }
-    body {
-      font-family: "Inter", sans-serif;
-      background: #050505;
-    }
-    .hero-visual {
-      position: absolute;
-      top: 0;
-      right: 0;
-      width: 50vw;
-      min-height: 100vh;
-      background-image:
-        radial-gradient(circle at 28% 26%, rgba(78, 156, 255, 0.68), transparent 40%),
-        linear-gradient(115deg, rgba(24, 82, 188, 0.3), transparent 68%),
-        url("assets/banner final.png");
-      background-position: center right;
-      background-size: cover;
-      opacity: 0.7;
-      filter: saturate(0.95) contrast(1.16);
-      pointer-events: none;
-      z-index: 0;
-    }
-    .glass-card {
-      background: linear-gradient(150deg, rgba(24, 24, 30, 0.74), rgba(16, 16, 20, 0.42));
-      border: 1px solid rgba(124, 175, 255, 0.35);
-      backdrop-filter: blur(10px);
-      transition: transform 220ms ease, border-color 220ms ease, box-shadow 220ms ease;
-    }
-    .glass-card:hover {
-      transform: translateY(-4px);
-      border-color: rgba(161, 201, 255, 0.6);
-      box-shadow: 0 18px 36px rgba(0, 0, 0, 0.35);
-    }
-  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blueprint Studios | Film Production Operating System</title>
+  <link rel="stylesheet" href="style.css">
 </head>
-<body class="text-zinc-100 antialiased">
-  <div class="hero-visual"></div>
-
-  <div class="relative z-10 min-h-screen">
-    <header class="sticky top-0 border-b border-zinc-800/80 bg-black/70 backdrop-blur-xl">
-      <nav class="mx-auto flex w-full max-w-7xl items-center justify-between px-6 py-4">
-        <div class="flex items-center gap-3">
-          <img src="assets/logo zemin.png" alt="MASTER v20.4 Seal" class="h-10 w-10 rounded-full border border-zinc-700 object-cover" />
-          <span class="text-xs tracking-[0.28em] text-zinc-300 uppercase">Blueprint Studios</span>
-        </div>
-        <div class="hidden items-center gap-7 text-sm md:flex">
-          <a href="#hero" data-i18n="nav.product" class="text-zinc-300 transition hover:text-white"></a>
-          <a href="#about" data-i18n="nav.about" class="text-zinc-300 transition hover:text-white"></a>
-          <a href="#pricing" data-i18n="nav.plans" class="rounded-full border border-blue-400/50 px-3 py-1 text-blue-200 transition hover:border-blue-300 hover:text-white"></a>
-        </div>
-        <button id="langToggle" class="rounded-full border border-zinc-600 px-3 py-1 text-xs tracking-wide transition hover:border-zinc-300">TR / EN</button>
-      </nav>
-    </header>
-
-    <main>
-      <section id="hero" class="mx-auto w-full max-w-7xl px-6 pb-20 pt-16 md:pt-24">
-        <div class="max-w-4xl">
-          <p data-i18n="hero.kicker" class="mb-4 text-xs tracking-[0.24em] text-zinc-400 uppercase"></p>
-          <h1 data-i18n="hero.title" class="text-4xl font-extrabold leading-tight text-white md:text-6xl"></h1>
-          <p data-i18n="hero.subtitle" class="mt-5 max-w-3xl text-lg leading-relaxed text-zinc-300"></p>
-        </div>
-      </section>
-
-      <section id="about" class="mx-auto w-full max-w-7xl px-6 pb-14">
-        <h2 data-i18n="about.title" class="mb-6 text-2xl font-semibold text-white md:text-3xl"></h2>
-        <div class="grid gap-5 md:grid-cols-3">
-          <article class="glass-card rounded-2xl p-6">
-            <h3 class="text-lg text-white">BlueCore AI</h3>
-            <p data-i18n="about.bluecore" class="mt-3 text-sm leading-relaxed text-zinc-300"></p>
-          </article>
-          <article class="glass-card rounded-2xl p-6">
-            <h3 class="text-lg text-white">Metadata Management</h3>
-            <p data-i18n="about.metadata" class="mt-3 text-sm leading-relaxed text-zinc-300"></p>
-          </article>
-          <article class="glass-card rounded-2xl p-6">
-            <h3 class="text-lg text-white">Production OS</h3>
-            <p data-i18n="about.production" class="mt-3 text-sm leading-relaxed text-zinc-300"></p>
-          </article>
-        </div>
-      </section>
-
-      <section id="pricing" class="mx-auto w-full max-w-7xl px-6 pb-16">
-        <h2 data-i18n="pricing.title" class="mb-6 text-2xl font-semibold text-white md:text-3xl"></h2>
-        <div class="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
-          <article class="glass-card rounded-2xl p-6">
-            <p data-i18n="pricing.studentLabel" class="text-sm tracking-[0.2em] text-blue-300 uppercase"></p>
-            <p class="mt-2 text-xl text-white">$9.99/mo</p>
-            <p data-i18n="pricing.studentDesc" class="mt-3 text-sm leading-relaxed text-zinc-300"></p>
-          </article>
-          <article class="glass-card rounded-2xl p-6">
-            <p data-i18n="pricing.standardLabel" class="text-sm tracking-[0.2em] text-blue-300 uppercase"></p>
-            <p class="mt-2 text-xl text-white">$29/mo</p>
-            <p data-i18n="pricing.standardDesc" class="mt-3 text-sm leading-relaxed text-zinc-300"></p>
-          </article>
-          <article class="glass-card rounded-2xl p-6">
-            <p data-i18n="pricing.proLabel" class="text-sm tracking-[0.2em] text-blue-300 uppercase"></p>
-            <p class="mt-2 text-xl text-white">$99/mo</p>
-            <p data-i18n="pricing.proDesc" class="mt-3 text-sm leading-relaxed text-zinc-300"></p>
-          </article>
-          <article class="glass-card rounded-2xl p-6">
-            <p data-i18n="pricing.businessLabel" class="text-sm tracking-[0.2em] text-blue-300 uppercase"></p>
-            <p class="mt-2 text-xl text-white">Custom</p>
-            <p data-i18n="pricing.businessDesc" class="mt-3 text-sm leading-relaxed text-zinc-300"></p>
-          </article>
-        </div>
-      </section>
-    </main>
-
-    <footer class="mx-auto w-full max-w-7xl border-t border-zinc-800 px-6 py-8">
-      <div class="flex items-center justify-between gap-4">
-        <p data-i18n="footer.tagline" class="text-xs text-zinc-400"></p>
-        <img src="assets/logo zemin.png" alt="MASTER v20.4 Signature Seal" class="h-10 w-10 rounded-full border border-zinc-700 object-cover" />
+<body>
+  <header class="site-header">
+    <div class="container shell row">
+      <div class="row">
+        <img class="seal" src="assets/logo zemin.png" alt="Blueprint Seal">
+        <span class="brand">BLUEPRINT STUDIOS</span>
       </div>
-    </footer>
-  </div>
+      <nav class="row nav-links">
+        <a href="#hero" data-i18n="nav.hero"></a>
+        <a href="#tools" data-i18n="nav.tools"></a>
+        <a href="#pricing" data-i18n="nav.pricing"></a>
+      </nav>
+      <button id="langToggle" class="btn-inline">TR / EN</button>
+    </div>
+  </header>
+
+  <main>
+    <section id="hero" class="container section hero-shell shell">
+      <div>
+        <p class="kicker" data-i18n="hero.kicker"></p>
+        <h1 data-i18n="hero.title"></h1>
+        <p class="muted" data-i18n="hero.text"></p>
+      </div>
+      <div class="hero-media shell">
+        <img src="assets/banner final.png" alt="Blueprint Banner">
+      </div>
+    </section>
+
+    <section id="tools" class="container section">
+      <h2 data-i18n="tools.title"></h2>
+      <div class="grid3">
+        <article class="shell tool-card">
+          <h3>BlueCore AI</h3>
+          <p class="muted" data-i18n="tools.bluecore"></p>
+          <img src="assets/banner final.png" alt="BlueCore Module">
+        </article>
+        <article class="shell tool-card">
+          <h3>Metadata Management</h3>
+          <p class="muted" data-i18n="tools.metadata"></p>
+          <img src="assets/banner final.png" alt="Metadata Module">
+        </article>
+        <article class="shell tool-card">
+          <h3>Production OS</h3>
+          <p class="muted" data-i18n="tools.production"></p>
+          <img src="assets/banner final.png" alt="Production Module">
+        </article>
+      </div>
+    </section>
+
+    <section id="pricing" class="container section">
+      <h2 data-i18n="pricing.title"></h2>
+      <div class="grid4">
+        <article class="shell price-card">
+          <h3 data-i18n="pricing.student.title"></h3>
+          <p class="price">$9.99/mo</p>
+          <p class="muted" data-i18n="pricing.student.text"></p>
+        </article>
+        <article class="shell price-card">
+          <h3 data-i18n="pricing.standard.title"></h3>
+          <p class="price">$29/mo</p>
+          <p class="muted" data-i18n="pricing.standard.text"></p>
+        </article>
+        <article class="shell price-card">
+          <h3 data-i18n="pricing.pro.title"></h3>
+          <p class="price">$99/mo</p>
+          <p class="muted" data-i18n="pricing.pro.text"></p>
+        </article>
+        <article class="shell price-card">
+          <h3 data-i18n="pricing.business.title"></h3>
+          <p class="price">Custom</p>
+          <p class="muted" data-i18n="pricing.business.text"></p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="container section shell row footer-row">
+    <div class="row">
+      <img class="seal" src="assets/logo zemin.png" alt="Blueprint Footer Seal">
+      <span data-i18n="footer.text"></span>
+    </div>
+  </footer>
 
   <script>
     const i18n = {
       tr: {
-        "nav.product": "MASTER v20.4",
-        "nav.about": "Bu Nedir?",
-        "nav.plans": "Planlar",
-        "hero.kicker": "Professional Film Production OS",
-        "hero.title": "MASTER v20.4: CINEMATIC OPERATING SYSTEM",
-        "hero.subtitle": "Sinematik Sanatın üretim disiplinini, teknik kesinlik ve hızla birleştiren prestijli prodüksiyon işletim sistemi.",
-        "about.title": "Bu Nedir?",
-        "about.bluecore": "Fiziksel dünyadaki her objeyi her karede mühürler.",
-        "about.metadata": "ARRI Alexa 35 verilerini anlık işler.",
-        "about.production": "24 yıllık tecrübeyle tüm süreci yönetir.",
+        "nav.hero": "Hero",
+        "nav.tools": "AI Tools",
+        "nav.pricing": "Planlar",
+        "hero.kicker": "FILM PRODUCTION OPERATING SYSTEM",
+        "hero.title": "MASTER v20.4",
+        "hero.text": "Sinematik Sanatın üretim disiplinini modern, modüler ve yüksek hassasiyetli bir altyapı ile yönetir.",
+        "tools.title": "AI Tools",
+        "tools.bluecore": "Fiziksel dünyadaki her objeyi her karede mühürler.",
+        "tools.metadata": "ARRI Alexa 35 verilerini anlık işler ve teknik sürekliliği korur.",
+        "tools.production": "24 yıllık tecrübeyle tüm prodüksiyon sürecini tek merkezden yönetir.",
         "pricing.title": "Planlar",
-        "pricing.studentLabel": "Öğrenci",
-        "pricing.studentDesc": "1080p Export, Core v20.4 Access.",
-        "pricing.standardLabel": "Standart",
-        "pricing.standardDesc": "4K Workflow, BlueCore AI Integration.",
-        "pricing.proLabel": "Pro",
-        "pricing.proDesc": "8K Render, Arri LogC4 Workflow, VIP Support.",
-        "pricing.businessLabel": "Business",
-        "pricing.businessDesc": "Stüdyo Lisansları.",
-        "footer.tagline": "Blueprint Studios | MASTER v20.4 Signature Seal"
+        "pricing.student.title": "Öğrenci",
+        "pricing.student.text": "1080p Export, Core v20.4 Access.",
+        "pricing.standard.title": "Standart",
+        "pricing.standard.text": "4K Workflow, BlueCore AI Integration.",
+        "pricing.pro.title": "Pro",
+        "pricing.pro.text": "8K Render, Arri LogC4 Workflow, VIP Support.",
+        "pricing.business.title": "Business",
+        "pricing.business.text": "Stüdyo lisansları.",
+        "footer.text": "Blueprint Studios | MFS v20.4 Signature"
       },
       en: {
-        "nav.product": "MASTER v20.4",
-        "nav.about": "What Is It?",
-        "nav.plans": "Plans",
-        "hero.kicker": "Professional Film Production OS",
-        "hero.title": "MASTER v20.4: CINEMATIC OPERATING SYSTEM",
-        "hero.subtitle": "A prestigious production operating system that unifies the discipline of cinematic art with technical precision and speed.",
-        "about.title": "What Is It?",
-        "about.bluecore": "Seals every physical object consistently across every frame.",
-        "about.metadata": "Processes ARRI Alexa 35 metadata in real time.",
-        "about.production": "Manages the full pipeline with 24 years of expertise.",
+        "nav.hero": "Hero",
+        "nav.tools": "AI Tools",
+        "nav.pricing": "Pricing",
+        "hero.kicker": "FILM PRODUCTION OPERATING SYSTEM",
+        "hero.title": "MASTER v20.4",
+        "hero.text": "Manages the discipline of cinematic art through a modern, modular, and high-precision operating layer.",
+        "tools.title": "AI Tools",
+        "tools.bluecore": "Seals every physical object across every frame.",
+        "tools.metadata": "Processes ARRI Alexa 35 metadata in real time and preserves technical continuity.",
+        "tools.production": "Orchestrates full production with 24 years of expertise from a single control center.",
         "pricing.title": "Pricing",
-        "pricing.studentLabel": "Student",
-        "pricing.studentDesc": "1080p Export, Core v20.4 Access.",
-        "pricing.standardLabel": "Standard",
-        "pricing.standardDesc": "4K Workflow, BlueCore AI Integration.",
-        "pricing.proLabel": "Pro",
-        "pricing.proDesc": "8K Render, Arri LogC4 Workflow, VIP Support.",
-        "pricing.businessLabel": "Business",
-        "pricing.businessDesc": "Studio Licenses.",
-        "footer.tagline": "Blueprint Studios | MASTER v20.4 Signature Seal"
+        "pricing.student.title": "Student",
+        "pricing.student.text": "1080p Export, Core v20.4 Access.",
+        "pricing.standard.title": "Standard",
+        "pricing.standard.text": "4K Workflow, BlueCore AI Integration.",
+        "pricing.pro.title": "Pro",
+        "pricing.pro.text": "8K Render, Arri LogC4 Workflow, VIP Support.",
+        "pricing.business.title": "Business",
+        "pricing.business.text": "Studio licenses.",
+        "footer.text": "Blueprint Studios | MFS v20.4 Signature"
       }
     };
 
-    function applyLanguage(lang) {
-      document.documentElement.lang = lang;
+    const toggle = document.getElementById("langToggle");
+    let lang = "tr";
+
+    function applyLanguage(next) {
+      document.documentElement.lang = next;
       document.querySelectorAll("[data-i18n]").forEach((node) => {
         const key = node.dataset.i18n;
-        const value = i18n[lang][key];
+        const value = i18n[next][key];
         if (value) node.textContent = value;
       });
     }
 
-    const toggle = document.getElementById("langToggle");
-    let lang = "tr";
     applyLanguage(lang);
     toggle.addEventListener("click", () => {
       lang = lang === "tr" ? "en" : "tr";
@@ -191,3 +157,305 @@
   </script>
 </body>
 </html>
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blueprint Studios | Film Production Operating System</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container shell row">
+      <div class="row">
+        <img class="seal" src="assets/logo zemin.png" alt="Blueprint Seal">
+        <span class="brand">BLUEPRINT STUDIOS</span>
+      </div>
+      <nav class="row nav-links">
+        <a href="#hero" data-i18n="nav.hero"></a>
+        <a href="#tools" data-i18n="nav.tools"></a>
+        <a href="#pricing" data-i18n="nav.pricing"></a>
+      </nav>
+      <button id="langToggle" class="btn-inline">TR / EN</button>
+    </div>
+  </header>
+
+  <main>
+    <section id="hero" class="container section hero-shell shell">
+      <div>
+        <p class="kicker" data-i18n="hero.kicker"></p>
+        <h1 data-i18n="hero.title"></h1>
+        <p class="muted" data-i18n="hero.text"></p>
+      </div>
+      <div class="hero-media shell">
+        <img src="assets/banner final.png" alt="Blueprint Banner">
+      </div>
+    </section>
+
+    <section id="tools" class="container section">
+      <h2 data-i18n="tools.title"></h2>
+      <div class="grid3">
+        <article class="shell tool-card">
+          <h3>BlueCore AI</h3>
+          <p class="muted" data-i18n="tools.bluecore"></p>
+          <img src="assets/banner final.png" alt="BlueCore Module">
+        </article>
+        <article class="shell tool-card">
+          <h3>Metadata Management</h3>
+          <p class="muted" data-i18n="tools.metadata"></p>
+          <img src="assets/banner final.png" alt="Metadata Module">
+        </article>
+        <article class="shell tool-card">
+          <h3>Production OS</h3>
+          <p class="muted" data-i18n="tools.production"></p>
+          <img src="assets/banner final.png" alt="Production Module">
+        </article>
+      </div>
+    </section>
+
+    <section id="pricing" class="container section">
+      <h2 data-i18n="pricing.title"></h2>
+      <div class="grid4">
+        <article class="shell price-card">
+          <h3 data-i18n="pricing.student.title"></h3>
+          <p class="price">$9.99/mo</p>
+          <p class="muted" data-i18n="pricing.student.text"></p>
+        </article>
+        <article class="shell price-card">
+          <h3 data-i18n="pricing.standard.title"></h3>
+          <p class="price">$29/mo</p>
+          <p class="muted" data-i18n="pricing.standard.text"></p>
+        </article>
+        <article class="shell price-card">
+          <h3 data-i18n="pricing.pro.title"></h3>
+          <p class="price">$99/mo</p>
+          <p class="muted" data-i18n="pricing.pro.text"></p>
+        </article>
+        <article class="shell price-card">
+          <h3 data-i18n="pricing.business.title"></h3>
+          <p class="price">Custom</p>
+          <p class="muted" data-i18n="pricing.business.text"></p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="container section shell row footer-row">
+    <div class="row">
+      <img class="seal" src="assets/logo zemin.png" alt="Blueprint Footer Seal">
+      <span data-i18n="footer.text"></span>
+    </div>
+  </footer>
+
+  <script>
+    const i18n = {
+      tr: {
+        "nav.hero": "Hero",
+        "nav.tools": "AI Tools",
+        "nav.pricing": "Planlar",
+        "hero.kicker": "FILM PRODUCTION OPERATING SYSTEM",
+        "hero.title": "MASTER v20.4",
+        "hero.text": "Sinematik Sanatın üretim disiplinini modern, modüler ve yüksek hassasiyetli bir altyapı ile yönetir.",
+        "tools.title": "AI Tools",
+        "tools.bluecore": "Fiziksel dünyadaki her objeyi her karede mühürler.",
+        "tools.metadata": "ARRI Alexa 35 verilerini anlık işler ve teknik sürekliliği korur.",
+        "tools.production": "24 yıllık tecrübeyle tüm prodüksiyon sürecini tek merkezden yönetir.",
+        "pricing.title": "Planlar",
+        "pricing.student.title": "Öğrenci",
+        "pricing.student.text": "1080p Export, Core v20.4 Access.",
+        "pricing.standard.title": "Standart",
+        "pricing.standard.text": "4K Workflow, BlueCore AI Integration.",
+        "pricing.pro.title": "Pro",
+        "pricing.pro.text": "8K Render, Arri LogC4 Workflow, VIP Support.",
+        "pricing.business.title": "Business",
+        "pricing.business.text": "Stüdyo lisansları.",
+        "footer.text": "Blueprint Studios | MFS v20.4 Signature"
+      },
+      en: {
+        "nav.hero": "Hero",
+        "nav.tools": "AI Tools",
+        "nav.pricing": "Pricing",
+        "hero.kicker": "FILM PRODUCTION OPERATING SYSTEM",
+        "hero.title": "MASTER v20.4",
+        "hero.text": "Manages the discipline of cinematic art through a modern, modular, and high-precision operating layer.",
+        "tools.title": "AI Tools",
+        "tools.bluecore": "Seals every physical object across every frame.",
+        "tools.metadata": "Processes ARRI Alexa 35 metadata in real time and preserves technical continuity.",
+        "tools.production": "Orchestrates full production with 24 years of expertise from a single control center.",
+        "pricing.title": "Pricing",
+        "pricing.student.title": "Student",
+        "pricing.student.text": "1080p Export, Core v20.4 Access.",
+        "pricing.standard.title": "Standard",
+        "pricing.standard.text": "4K Workflow, BlueCore AI Integration.",
+        "pricing.pro.title": "Pro",
+        "pricing.pro.text": "8K Render, Arri LogC4 Workflow, VIP Support.",
+        "pricing.business.title": "Business",
+        "pricing.business.text": "Studio licenses.",
+        "footer.text": "Blueprint Studios | MFS v20.4 Signature"
+      }
+    };
+
+    const toggle = document.getElementById("langToggle");
+    let lang = "tr";
+
+    function applyLanguage(next) {
+      document.documentElement.lang = next;
+      document.querySelectorAll("[data-i18n]").forEach((node) => {
+        const key = node.dataset.i18n;
+        const value = i18n[next][key];
+        if (value) node.textContent = value;
+      });
+    }
+
+    applyLanguage(lang);
+    toggle.addEventListener("click", () => {
+      lang = lang === "tr" ? "en" : "tr";
+      applyLanguage(lang);
+    });
+  </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cluely - AI-Powered Analytics</title>
+</head>
+<body>
+  <div class="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
+    <!-- Navigation -->
+    <nav class="border-b bg-white/80 backdrop-blur-sm sticky top-0 z-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-16">
+          <div class="flex items-center space-x-2">
+            <div class="w-8 h-8 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg flex items-center justify-center">
+              <svg class="w-5 h-5 text-white"><!-- Brain icon --></svg>
+            </div>
+            <span class="text-xl font-bold text-gray-900">Cluely</span>
+          </div>
+          <div class="hidden md:flex items-center space-x-8">
+            <a href="#features" class="text-gray-600 hover:text-gray-900">Features</a>
+            <a href="#pricing" class="text-gray-600 hover:text-gray-900">Pricing</a>
+            <a href="#about" class="text-gray-600 hover:text-gray-900">About</a>
+            <a href="/signin"><button class="ghost">Sign In</button></a>
+            <a href="/signup"><button class="primary">Get Started</button></a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-20 pb-16 px-4 sm:px-6 lg:px-8">
+      <div class="max-w-7xl mx-auto text-center">
+        <span class="badge bg-blue-100 text-blue-800">🚀 Now in Beta - Join 10,000+ users</span>
+        <h1 class="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
+          Unlock Business Insights
+          <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
+            with AI-Powered Analytics
+          </span>
+        </h1>
+        <p class="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
+          Transform your data into actionable insights with Cluely's intelligent analytics platform.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+          <a href="/signup">
+            <button class="bg-gradient-to-r from-blue-600 to-purple-600">
+              Start Free Trial <svg><!-- ArrowRight --></svg>
+            </button>
+          </a>
+          <button class="outline bg-white">Watch Demo</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-20 px-4 sm:px-6 lg:px-8">
+      <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Everything you need to succeed</h2>
+        </div>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div class="card shadow-lg">
+            <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+              <svg class="w-6 h-6 text-blue-600"><!-- BarChart3 --></svg>
+            </div>
+            <h3 class="card-title">Real-time Analytics</h3>
+            <p class="card-description">Monitor your business metrics in real-time with interactive dashboards.</p>
+          </div>
+          <div class="card shadow-lg">
+            <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
+              <svg class="w-6 h-6 text-purple-600"><!-- Brain --></svg>
+            </div>
+            <h3 class="card-title">AI-Powered Insights</h3>
+            <p class="card-description">Let our AI discover patterns and anomalies in your data.</p>
+          </div>
+          <div class="card shadow-lg">
+            <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
+              <svg class="w-6 h-6 text-green-600"><!-- Zap --></svg>
+            </div>
+            <h3 class="card-title">Lightning Fast</h3>
+            <p class="card-description">Process millions of data points in seconds.</p>
+          </div>
+          <div class="card shadow-lg">
+            <div class="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center mb-4">
+              <svg class="w-6 h-6 text-red-600"><!-- Shield --></svg>
+            </div>
+            <h3 class="card-title">Enterprise Security</h3>
+            <p class="card-description">Bank-level security with SOC 2 compliance.</p>
+          </div>
+          <div class="card shadow-lg">
+            <div class="w-12 h-12 bg-yellow-100 rounded-lg flex items-center justify-center mb-4">
+              <svg class="w-6 h-6 text-yellow-600"><!-- Users --></svg>
+            </div>
+            <h3 class="card-title">Team Collaboration</h3>
+            <p class="card-description">Share insights and collaborate with your team.</p>
+          </div>
+          <div class="card shadow-lg">
+            <div class="w-12 h-12 bg-indigo-100 rounded-lg flex items-center justify-center mb-4">
+              <svg class="w-6 h-6 text-indigo-600"><!-- TrendingUp --></svg>
+            </div>
+            <h3 class="card-title">Predictive Analytics</h3>
+            <p class="card-description">Forecast trends with our machine learning models.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="py-20 px-4 sm:px-6 lg:px-8 bg-white">
+      <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Simple, transparent pricing</h2>
+        </div>
+        <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+          <!-- Starter Plan -->
+          <div class="card border-2">
+            <h3 class="text-2xl text-center">Starter</h3>
+            <div class="text-center mt-4">
+              <span class="text-4xl font-bold">$29</span><span class="text-gray-600">/month</span>
+            </div>
+            <ul class="space-y-3 mt-4">
+              <li>✓ Up to 5 team members</li>
+              <li>✓ 10 data sources</li>
+              <li>✓ Basic analytics</li>
+              <li>✓ Email support</li>
+            </ul>
+            <button class="w-full mt-6 outline">Start Free Trial</button>
+          </div>
+          <!-- Professional Plan -->
+          <div class="card border-2 border-blue-500 relative">
+            <span class="badge absolute -top-3 left-1/2 transform -translate-x-1/2 bg-blue-500">Most Popular</span>
+            <h3 class="text-2xl text-center">Professional</h3>
+            <div class="text-center mt-4">
+              <span class="text-4xl font-bold">$99</span><span class="text-gray-600">/month</span>
+            </div>
+            <ul class="space-y-3 mt-4">
+              <li>✓ Up to 25 team members</li>
+              <li>✓ Unlimited data sources</li>
+              <li>✓ Advanced analytics & AI</li>
+              <li>✓ Priority support</li>
+              <li>✓ Custom integrations</li>
+            </ul>
+            <button class="
