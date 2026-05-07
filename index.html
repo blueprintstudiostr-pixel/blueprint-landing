@@ -6,104 +6,175 @@
   <title>Blueprint Studios | Sinematik Sanatın Geleceği</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    :root {
-      color-scheme: dark;
+    :root { color-scheme: dark; }
+    body { background: #050505; }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(180deg, rgba(5, 5, 5, 0.45), rgba(5, 5, 5, 0.95)),
+        radial-gradient(circle at 80% 12%, rgba(31, 111, 235, 0.22), transparent 36%),
+        url("assets/banner final.png");
+      background-size: cover;
+      background-position: center;
+      mask-image: linear-gradient(180deg, #000 0%, #000 70%, transparent 100%);
+      -webkit-mask-image: linear-gradient(180deg, #000 0%, #000 70%, transparent 100%);
+      filter: saturate(0.92) contrast(1.04);
     }
-    body {
-      background: radial-gradient(circle at top, #0a0a0a 0%, #050505 60%);
-    }
-    .film-grain::before {
-      content: "";
+    .film-grain,
+    .scanlines {
       position: fixed;
       inset: 0;
-      z-index: 40;
       pointer-events: none;
-      opacity: 0.12;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140' viewBox='0 0 140 140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E");
+      z-index: 30;
+    }
+    .film-grain {
+      opacity: 0.13;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160' viewBox='0 0 160 160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
       mix-blend-mode: soft-light;
-      animation: grainShift 0.25s steps(2) infinite;
+      animation: grainShift 0.3s steps(2) infinite;
+    }
+    .scanlines {
+      opacity: 0.12;
+      background: repeating-linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, 0.05) 0px,
+        rgba(255, 255, 255, 0.02) 1px,
+        transparent 2px,
+        transparent 4px
+      );
+      mix-blend-mode: overlay;
     }
     @keyframes grainShift {
       0% { transform: translate(0, 0); }
-      25% { transform: translate(-1%, 1%); }
-      50% { transform: translate(1%, -1%); }
-      75% { transform: translate(1%, 1%); }
+      25% { transform: translate(-0.8%, 0.8%); }
+      50% { transform: translate(0.8%, -0.8%); }
+      75% { transform: translate(0.8%, 0.8%); }
       100% { transform: translate(0, 0); }
     }
   </style>
 </head>
-<body class="film-grain text-zinc-100 antialiased">
+<body class="text-zinc-100 antialiased">
+  <div class="hero-bg"></div>
+  <div class="film-grain"></div>
+  <div class="scanlines"></div>
+
   <div class="relative z-10 min-h-screen">
-    <header class="sticky top-0 border-b border-zinc-800/70 bg-black/55 backdrop-blur-xl">
+    <header class="sticky top-0 border-b border-zinc-800/70 bg-black/60 backdrop-blur-xl">
       <nav class="mx-auto flex w-full max-w-7xl items-center justify-between px-6 py-4">
         <div class="flex items-center gap-4">
           <img src="assets/logo zemin.png" alt="Blueprint mühür logosu" class="h-10 w-10 rounded-full border border-zinc-700 object-cover" />
           <span class="text-xs tracking-[0.28em] text-zinc-300 uppercase">Blueprint Studios</span>
         </div>
         <div class="hidden items-center gap-8 text-sm md:flex">
-          <a href="#production-os" class="text-zinc-300 transition duration-300 hover:text-white">Production OS</a>
-          <a href="#hizmetler" class="text-zinc-300 transition duration-300 hover:text-white">Hizmetler</a>
-          <a href="#portfolyo" class="text-zinc-300 transition duration-300 hover:text-white">Portfolyo</a>
-          <a href="#iletisim" class="text-zinc-300 transition duration-300 hover:text-white">Iletisim</a>
+          <a href="#production-os" data-i18n="nav.production" class="text-zinc-300 transition duration-300 hover:text-white"></a>
+          <a href="#services" data-i18n="nav.services" class="text-zinc-300 transition duration-300 hover:text-white"></a>
+          <a href="#portfolio" data-i18n="nav.portfolio" class="text-zinc-300 transition duration-300 hover:text-white"></a>
+          <a href="#contact" data-i18n="nav.contact" class="text-zinc-300 transition duration-300 hover:text-white"></a>
         </div>
         <button id="langToggle" class="rounded-full border border-zinc-600 px-3 py-1 text-xs tracking-wide transition duration-300 hover:border-zinc-300">TR / EN</button>
       </nav>
     </header>
 
     <main>
-      <section class="mx-auto grid w-full max-w-7xl gap-10 px-6 py-16 md:grid-cols-[1.05fr_0.95fr] md:py-24">
-        <div class="flex flex-col justify-center">
-          <p class="mb-5 text-xs tracking-[0.24em] text-zinc-400 uppercase">Blueprint Cinematic Engine</p>
-          <h1 class="text-4xl font-semibold leading-tight text-white md:text-6xl" data-tr="Sinematik Sanatin Gelecegi: Master v12" data-en="Future of Cinematic Art: Master v12">
-            Sinematik Sanatin Gelecegi: Master v12
-          </h1>
-          <p class="mt-6 max-w-xl text-lg leading-relaxed text-zinc-300" data-tr="24 Yillik Tecrube ile AI Destekli Production OS" data-en="AI-powered Production OS with 24 years of expertise">
-            24 Yillik Tecrube ile AI Destekli Production OS
-          </p>
+      <section class="mx-auto w-full max-w-7xl px-6 pb-20 pt-16 md:pb-24 md:pt-24">
+        <div class="max-w-4xl">
+          <p data-i18n="hero.kicker" class="mb-5 text-xs tracking-[0.24em] text-zinc-400 uppercase"></p>
+          <h1 data-i18n="hero.title" class="text-4xl font-semibold leading-tight text-white md:text-6xl"></h1>
+          <p data-i18n="hero.subtitle" class="mt-6 max-w-3xl text-lg leading-relaxed text-zinc-300"></p>
           <div class="mt-8 flex flex-wrap gap-3 text-sm">
-            <span class="rounded-full border border-zinc-700 bg-zinc-900/70 px-4 py-2 text-zinc-200" data-tr="BlueCore AI: Fiziksel Devamlilik ve Doku Kontrolu" data-en="BlueCore AI: Physical continuity and texture control">BlueCore AI: Fiziksel Devamlilik ve Doku Kontrolu</span>
-            <span class="rounded-full border border-zinc-700 bg-zinc-900/70 px-4 py-2 text-zinc-200" data-tr="Blueprint Originals: Arri Alexa 35 Standartlarinda AI Produksiyon" data-en="Blueprint Originals: AI production at Arri Alexa 35 standards">Blueprint Originals: Arri Alexa 35 Standartlarinda AI Produksiyon</span>
+            <span data-i18n="hero.badge1" class="rounded-full border border-blue-500/50 bg-zinc-900/80 px-4 py-2 text-zinc-100"></span>
+            <span data-i18n="hero.badge2" class="rounded-full border border-blue-500/50 bg-zinc-900/80 px-4 py-2 text-zinc-100"></span>
           </div>
-        </div>
-        <div class="relative overflow-hidden rounded-3xl border border-zinc-800 bg-zinc-950/70 p-2 shadow-2xl shadow-black/40 transition duration-700 hover:-translate-y-1 hover:shadow-black/65">
-          <img src="assets/banner final.png" alt="Blueprint Studios sinematik banner" class="h-full min-h-[320px] w-full rounded-2xl object-cover" />
-          <div class="pointer-events-none absolute inset-0 rounded-3xl ring-1 ring-inset ring-white/10"></div>
         </div>
       </section>
 
       <section id="production-os" class="mx-auto w-full max-w-7xl px-6 pb-8">
         <div class="grid gap-5 md:grid-cols-3">
-          <article class="rounded-2xl border border-zinc-800 bg-zinc-900/40 p-6 transition duration-500 hover:border-zinc-500/80 hover:bg-zinc-900/70">
+          <article class="rounded-2xl border border-zinc-800 bg-zinc-900/55 p-6 transition duration-500 hover:border-blue-500/70 hover:bg-zinc-900/80">
             <h2 class="text-lg text-white">Master v12</h2>
-            <p class="mt-2 text-sm text-zinc-300" data-tr="Sinematik uretim sureclerinin tamamini tek bir Production OS altinda birlestirir." data-en="Unifies end-to-end cinematic workflows under one Production OS.">Sinematik uretim sureclerinin tamamini tek bir Production OS altinda birlestirir.</p>
+            <p data-i18n="cards.master" class="mt-2 text-sm leading-relaxed text-zinc-300"></p>
           </article>
-          <article id="hizmetler" class="rounded-2xl border border-zinc-800 bg-zinc-900/40 p-6 transition duration-500 hover:border-zinc-500/80 hover:bg-zinc-900/70">
+          <article id="services" class="rounded-2xl border border-zinc-800 bg-zinc-900/55 p-6 transition duration-500 hover:border-blue-500/70 hover:bg-zinc-900/80">
             <h2 class="text-lg text-white">BlueCore AI</h2>
-            <p class="mt-2 text-sm text-zinc-300" data-tr="Fiziksel devamli sahne eslesmesi ve doku stabilitesi ile premium kalite sunar." data-en="Delivers premium quality with physical scene continuity and texture stability.">Fiziksel devamli sahne eslesmesi ve doku stabilitesi ile premium kalite sunar.</p>
+            <p data-i18n="cards.bluecore" class="mt-2 text-sm leading-relaxed text-zinc-300"></p>
           </article>
-          <article id="portfolyo" class="rounded-2xl border border-zinc-800 bg-zinc-900/40 p-6 transition duration-500 hover:border-zinc-500/80 hover:bg-zinc-900/70">
+          <article id="portfolio" class="rounded-2xl border border-zinc-800 bg-zinc-900/55 p-6 transition duration-500 hover:border-blue-500/70 hover:bg-zinc-900/80">
             <h2 class="text-lg text-white">Blueprint Originals</h2>
-            <p class="mt-2 text-sm text-zinc-300" data-tr="Arri Alexa 35 estetik cizgisinde AI tabanli reklam, tanitim ve hikaye anlatimi." data-en="AI-driven ads, promotions, and storytelling in the Arri Alexa 35 aesthetic line.">Arri Alexa 35 estetik cizgisinde AI tabanli reklam, tanitim ve hikaye anlatimi.</p>
+            <p data-i18n="cards.originals" class="mt-2 text-sm leading-relaxed text-zinc-300"></p>
           </article>
         </div>
       </section>
     </main>
 
-    <footer id="iletisim" class="mx-auto mt-10 w-full max-w-7xl border-t border-zinc-800 px-6 py-8 text-xs text-zinc-400">
-      <p data-tr="Blueprint Studios | Sinematik vizyon ve matematiksel kesinlik bir arada." data-en="Blueprint Studios | Cinematic vision and mathematical precision together.">Blueprint Studios | Sinematik vizyon ve matematiksel kesinlik bir arada.</p>
+    <footer id="contact" class="mx-auto mt-12 w-full max-w-7xl border-t border-zinc-800 px-6 py-10">
+      <div class="grid gap-6 md:grid-cols-[1fr_auto] md:items-end">
+        <p data-i18n="footer.tagline" class="text-xs text-zinc-400"></p>
+        <div class="rounded-2xl border border-zinc-700 bg-black/60 p-4 shadow-xl shadow-black/40">
+          <div class="mb-2 flex items-center gap-3">
+            <img src="assets/logo zemin.png" alt="Master Seal" class="h-11 w-11 rounded-full border border-blue-500/50 object-cover" />
+            <div>
+              <p class="text-sm text-zinc-100">Master Seal</p>
+              <p class="text-[11px] tracking-[0.2em] text-blue-300 uppercase">Blueprint Certified</p>
+            </div>
+          </div>
+          <p class="text-[11px] leading-relaxed text-zinc-400">
+            4096x1716 | 24fps | LogC4 | Rec.709 Monitoring | BlueCore Continuity Lock
+          </p>
+        </div>
+      </div>
     </footer>
   </div>
 
   <script>
-    const toggle = document.getElementById("langToggle");
-    let lang = "tr";
-    toggle.addEventListener("click", () => {
-      lang = lang === "tr" ? "en" : "tr";
+    const i18n = {
+      tr: {
+        "nav.production": "Production OS",
+        "nav.services": "Hizmetler",
+        "nav.portfolio": "Portfolyo",
+        "nav.contact": "İletişim",
+        "hero.kicker": "Blueprint Film Production OS",
+        "hero.title": "Sinematik Sanatın Geleceği",
+        "hero.subtitle": "The Future of Cinematic Art.",
+        "hero.badge1": "Master v12 | Professional Film Production Operating System",
+        "hero.badge2": "24 years of expertise meets AI-driven management.",
+        "cards.master": "Professional Film Production Operating System. 24 years of expertise meets AI-driven management.",
+        "cards.bluecore": "Continuity Engine for high-end cinematography. Ensuring physical consistency across every frame.",
+        "cards.originals": "AI-powered studio productions at ARRI Alexa 35 standards.",
+        "footer.tagline": "Blueprint Studios | Sinematik vizyon ve matematiksel kesinlik bir arada."
+      },
+      en: {
+        "nav.production": "Production OS",
+        "nav.services": "Services",
+        "nav.portfolio": "Portfolio",
+        "nav.contact": "Contact",
+        "hero.kicker": "Blueprint Film Production OS",
+        "hero.title": "The Future of Cinematic Art",
+        "hero.subtitle": "Sinematik Sanatın Geleceği.",
+        "hero.badge1": "Master v12 | Professional Film Production Operating System",
+        "hero.badge2": "24 years of expertise meets AI-driven management.",
+        "cards.master": "Professional Film Production Operating System. 24 years of expertise meets AI-driven management.",
+        "cards.bluecore": "Continuity Engine for high-end cinematography. Ensuring physical consistency across every frame.",
+        "cards.originals": "AI-powered studio productions at ARRI Alexa 35 standards.",
+        "footer.tagline": "Blueprint Studios | Cinematic vision and mathematical precision together."
+      }
+    };
+
+    function applyLanguage(lang) {
       document.documentElement.lang = lang;
-      document.querySelectorAll("[data-tr]").forEach((node) => {
-        const value = lang === "tr" ? node.dataset.tr : node.dataset.en;
+      document.querySelectorAll("[data-i18n]").forEach((node) => {
+        const key = node.dataset.i18n;
+        const value = i18n[lang][key];
         if (value) node.textContent = value;
       });
+    }
+
+    const toggle = document.getElementById("langToggle");
+    let lang = "tr";
+    applyLanguage(lang);
+    toggle.addEventListener("click", () => {
+      lang = lang === "tr" ? "en" : "tr";
+      applyLanguage(lang);
     });
   </script>
 </body>
