@@ -12,14 +12,14 @@
       position: absolute;
       inset: 0;
       background-image:
-        linear-gradient(180deg, rgba(5, 5, 5, 0.45), rgba(5, 5, 5, 0.95)),
-        radial-gradient(circle at 80% 12%, rgba(31, 111, 235, 0.22), transparent 36%),
+        linear-gradient(180deg, rgba(5, 5, 5, 0.52), rgba(5, 5, 5, 0.96)),
+        linear-gradient(120deg, rgba(27, 89, 180, 0.16), transparent 50%),
         url("assets/banner final.png");
       background-size: cover;
       background-position: center;
       mask-image: linear-gradient(180deg, #000 0%, #000 70%, transparent 100%);
       -webkit-mask-image: linear-gradient(180deg, #000 0%, #000 70%, transparent 100%);
-      filter: saturate(0.92) contrast(1.04);
+      filter: saturate(0.8) contrast(1.08) brightness(0.7);
     }
     .film-grain,
     .scanlines {
@@ -45,6 +45,23 @@
       );
       mix-blend-mode: overlay;
     }
+    .blueprint-grid {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 20;
+      opacity: 0.1;
+      background-image:
+        linear-gradient(rgba(75, 135, 230, 0.25) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(75, 135, 230, 0.25) 1px, transparent 1px);
+      background-size: 42px 42px;
+    }
+    .glass {
+      background: linear-gradient(145deg, rgba(20, 20, 24, 0.72), rgba(20, 20, 24, 0.42));
+      border: 1px solid rgba(107, 156, 245, 0.28);
+      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.35);
+      backdrop-filter: blur(10px);
+    }
     @keyframes grainShift {
       0% { transform: translate(0, 0); }
       25% { transform: translate(-0.8%, 0.8%); }
@@ -56,6 +73,7 @@
 </head>
 <body class="text-zinc-100 antialiased">
   <div class="hero-bg"></div>
+  <div class="blueprint-grid"></div>
   <div class="film-grain"></div>
   <div class="scanlines"></div>
 
@@ -89,19 +107,53 @@
         </div>
       </section>
 
+      <section class="mx-auto w-full max-w-7xl px-6 pb-14">
+        <div class="glass rounded-3xl p-8 md:p-10">
+          <h2 data-i18n="why.title" class="text-2xl font-semibold text-white md:text-3xl"></h2>
+          <div class="mt-5 grid gap-3 text-zinc-300">
+            <p data-i18n="why.line1" class="text-base leading-relaxed md:text-lg"></p>
+            <p data-i18n="why.line2" class="text-base leading-relaxed md:text-lg"></p>
+          </div>
+        </div>
+      </section>
+
       <section id="production-os" class="mx-auto w-full max-w-7xl px-6 pb-8">
         <div class="grid gap-5 md:grid-cols-3">
-          <article class="rounded-2xl border border-zinc-800 bg-zinc-900/55 p-6 transition duration-500 hover:border-blue-500/70 hover:bg-zinc-900/80">
-            <h2 class="text-lg text-white">Master v12</h2>
+          <article class="glass rounded-2xl p-6 transition duration-500 hover:-translate-y-1">
+            <h2 class="text-lg text-white">MASTER v20.4</h2>
             <p data-i18n="cards.master" class="mt-2 text-sm leading-relaxed text-zinc-300"></p>
           </article>
-          <article id="services" class="rounded-2xl border border-zinc-800 bg-zinc-900/55 p-6 transition duration-500 hover:border-blue-500/70 hover:bg-zinc-900/80">
+          <article id="services" class="glass rounded-2xl p-6 transition duration-500 hover:-translate-y-1">
             <h2 class="text-lg text-white">BlueCore AI</h2>
             <p data-i18n="cards.bluecore" class="mt-2 text-sm leading-relaxed text-zinc-300"></p>
           </article>
-          <article id="portfolio" class="rounded-2xl border border-zinc-800 bg-zinc-900/55 p-6 transition duration-500 hover:border-blue-500/70 hover:bg-zinc-900/80">
+          <article id="portfolio" class="glass rounded-2xl p-6 transition duration-500 hover:-translate-y-1">
             <h2 class="text-lg text-white">Blueprint Originals</h2>
             <p data-i18n="cards.originals" class="mt-2 text-sm leading-relaxed text-zinc-300"></p>
+          </article>
+        </div>
+      </section>
+
+      <section id="pricing" class="mx-auto w-full max-w-7xl px-6 pb-12 pt-6">
+        <div class="mb-6">
+          <h2 data-i18n="pricing.title" class="text-2xl font-semibold text-white md:text-3xl"></h2>
+        </div>
+        <div class="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+          <article class="glass rounded-2xl p-6 transition duration-500 hover:-translate-y-1">
+            <p data-i18n="pricing.studentLabel" class="text-sm tracking-[0.18em] text-blue-300 uppercase"></p>
+            <p data-i18n="pricing.student" class="mt-3 text-sm leading-relaxed text-zinc-300"></p>
+          </article>
+          <article class="glass rounded-2xl p-6 transition duration-500 hover:-translate-y-1">
+            <p data-i18n="pricing.standardLabel" class="text-sm tracking-[0.18em] text-blue-300 uppercase"></p>
+            <p data-i18n="pricing.standard" class="mt-3 text-sm leading-relaxed text-zinc-300"></p>
+          </article>
+          <article class="glass rounded-2xl p-6 transition duration-500 hover:-translate-y-1">
+            <p data-i18n="pricing.proLabel" class="text-sm tracking-[0.18em] text-blue-300 uppercase"></p>
+            <p data-i18n="pricing.pro" class="mt-3 text-sm leading-relaxed text-zinc-300"></p>
+          </article>
+          <article class="glass rounded-2xl p-6 transition duration-500 hover:-translate-y-1">
+            <p data-i18n="pricing.businessLabel" class="text-sm tracking-[0.18em] text-blue-300 uppercase"></p>
+            <p data-i18n="pricing.business" class="mt-3 text-sm leading-relaxed text-zinc-300"></p>
           </article>
         </div>
       </section>
@@ -135,12 +187,24 @@
         "nav.contact": "İletişim",
         "hero.kicker": "Blueprint Film Production OS",
         "hero.title": "Sinematik Sanatın Geleceği",
-        "hero.subtitle": "The Future of Cinematic Art.",
-        "hero.badge1": "Master v12 | Professional Film Production Operating System",
+        "hero.subtitle": "MASTER v20.4, profesyonel film prodüksiyon ekipleri için geliştirilen yeni nesil bir işletim sistemidir.",
+        "hero.badge1": "MASTER v20.4 | Professional Film Production Operating System",
         "hero.badge2": "24 years of expertise meets AI-driven management.",
+        "why.title": "Neden Master v20.4?",
+        "why.line1": "24 yıllık sinema tecrübesinin kodlanmış hali.",
+        "why.line2": "ARRI Alexa 35 standartlarında veri yönetimi ve fiziksel devamlılık kontrolü.",
         "cards.master": "Professional Film Production Operating System. 24 years of expertise meets AI-driven management.",
         "cards.bluecore": "Continuity Engine for high-end cinematography. Ensuring physical consistency across every frame.",
         "cards.originals": "AI-powered studio productions at ARRI Alexa 35 standards.",
+        "pricing.title": "Planlar",
+        "pricing.studentLabel": "Öğrenci",
+        "pricing.student": "Geleceğin yönetmenleri için temel araçlar.",
+        "pricing.standardLabel": "Standart",
+        "pricing.standard": "Bağımsız yapımlar için profesyonel altyapı.",
+        "pricing.proLabel": "Pro",
+        "pricing.pro": "Yüksek bütçeli setler ve tam BlueCore AI entegrasyonu.",
+        "pricing.businessLabel": "Business",
+        "pricing.business": "Stüdyolar için sınırsız ölçekleme ve özel destek.",
         "footer.tagline": "Blueprint Studios | Sinematik vizyon ve matematiksel kesinlik bir arada."
       },
       en: {
@@ -150,12 +214,24 @@
         "nav.contact": "Contact",
         "hero.kicker": "Blueprint Film Production OS",
         "hero.title": "The Future of Cinematic Art",
-        "hero.subtitle": "Sinematik Sanatın Geleceği.",
-        "hero.badge1": "Master v12 | Professional Film Production Operating System",
+        "hero.subtitle": "MASTER v20.4 is a next-generation operating system crafted for professional film production teams.",
+        "hero.badge1": "MASTER v20.4 | Professional Film Production Operating System",
         "hero.badge2": "24 years of expertise meets AI-driven management.",
+        "why.title": "Why Master v20.4?",
+        "why.line1": "The coded form of 24 years of cinematic experience.",
+        "why.line2": "Data orchestration and physical continuity control at ARRI Alexa 35 standards.",
         "cards.master": "Professional Film Production Operating System. 24 years of expertise meets AI-driven management.",
         "cards.bluecore": "Continuity Engine for high-end cinematography. Ensuring physical consistency across every frame.",
         "cards.originals": "AI-powered studio productions at ARRI Alexa 35 standards.",
+        "pricing.title": "Plans",
+        "pricing.studentLabel": "Student",
+        "pricing.student": "Core tools for the directors of tomorrow.",
+        "pricing.standardLabel": "Standard",
+        "pricing.standard": "Professional infrastructure for independent productions.",
+        "pricing.proLabel": "Pro",
+        "pricing.pro": "Full BlueCore AI integration for high-budget sets.",
+        "pricing.businessLabel": "Business",
+        "pricing.business": "Unlimited studio scaling with dedicated premium support.",
         "footer.tagline": "Blueprint Studios | Cinematic vision and mathematical precision together."
       }
     };
