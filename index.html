@@ -3,108 +3,60 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MASTER v20.4 | Cinematic Operating System</title>
+  <title>MASTER v20.4: CINEMATIC OPERATING SYSTEM</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
+    @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap");
     :root { color-scheme: dark; }
     html { scroll-behavior: smooth; }
-    body { background: #050505; }
-    .blueprint-hero {
+    body {
+      font-family: "Inter", sans-serif;
+      background: #050505;
+    }
+    .hero-visual {
       position: absolute;
-      inset: 0;
+      top: 0;
+      right: 0;
+      width: 50vw;
+      min-height: 100vh;
       background-image:
-        radial-gradient(circle at 70% 25%, rgba(70, 136, 255, 0.48), transparent 42%),
-        linear-gradient(120deg, rgba(33, 88, 173, 0.36), transparent 62%),
-        linear-gradient(180deg, rgba(5, 5, 5, 0.3), rgba(5, 5, 5, 0.88)),
+        radial-gradient(circle at 28% 26%, rgba(78, 156, 255, 0.68), transparent 40%),
+        linear-gradient(115deg, rgba(24, 82, 188, 0.3), transparent 68%),
         url("assets/banner final.png");
+      background-position: center right;
       background-size: cover;
-      background-position: center;
-      opacity: 0.66;
-      filter: saturate(0.9) contrast(1.18);
-      mask-image: linear-gradient(180deg, #000 0%, #000 68%, transparent 100%);
-      -webkit-mask-image: linear-gradient(180deg, #000 0%, #000 68%, transparent 100%);
-      transform: translateY(var(--hero-shift, 0px));
-      transition: transform 120ms linear;
-    }
-    .film-grain,
-    .scanlines,
-    .tech-grid {
-      position: fixed;
-      inset: 0;
+      opacity: 0.7;
+      filter: saturate(0.95) contrast(1.16);
       pointer-events: none;
+      z-index: 0;
     }
-    .tech-grid {
-      z-index: 10;
-      opacity: 0.08;
-      background-image:
-        linear-gradient(rgba(82, 141, 232, 0.3) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(82, 141, 232, 0.3) 1px, transparent 1px);
-      background-size: 38px 38px;
-    }
-    .film-grain {
-      z-index: 20;
-      opacity: 0.12;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180' viewBox='0 0 180 180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)'/%3E%3C/svg%3E");
-      mix-blend-mode: soft-light;
-      animation: grainShift 0.28s steps(2) infinite;
-    }
-    .scanlines {
-      z-index: 21;
-      opacity: 0.1;
-      background: repeating-linear-gradient(
-        to bottom,
-        rgba(255, 255, 255, 0.04) 0px,
-        rgba(255, 255, 255, 0.01) 1px,
-        transparent 2px,
-        transparent 4px
-      );
-      mix-blend-mode: overlay;
-    }
-    .glass {
-      background: linear-gradient(155deg, rgba(22, 22, 28, 0.72), rgba(20, 20, 24, 0.42));
-      border: 1px solid rgba(110, 160, 250, 0.28);
-      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
+    .glass-card {
+      background: linear-gradient(150deg, rgba(24, 24, 30, 0.74), rgba(16, 16, 20, 0.42));
+      border: 1px solid rgba(124, 175, 255, 0.35);
       backdrop-filter: blur(10px);
+      transition: transform 220ms ease, border-color 220ms ease, box-shadow 220ms ease;
     }
-    .architecture-shell {
-      background-image:
-        linear-gradient(rgba(99, 152, 238, 0.15) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(99, 152, 238, 0.15) 1px, transparent 1px);
-      background-size: 24px 24px;
-    }
-    .cinema-frame {
-      aspect-ratio: 2.39 / 1;
-      border: 1px solid rgba(132, 171, 245, 0.4);
-      background: linear-gradient(135deg, rgba(22, 22, 30, 0.95), rgba(16, 16, 20, 0.7));
-    }
-    @keyframes grainShift {
-      0% { transform: translate(0, 0); }
-      25% { transform: translate(-0.7%, 0.9%); }
-      50% { transform: translate(0.8%, -0.6%); }
-      75% { transform: translate(0.5%, 0.8%); }
-      100% { transform: translate(0, 0); }
+    .glass-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(161, 201, 255, 0.6);
+      box-shadow: 0 18px 36px rgba(0, 0, 0, 0.35);
     }
   </style>
 </head>
 <body class="text-zinc-100 antialiased">
-  <div class="blueprint-hero"></div>
-  <div class="tech-grid"></div>
-  <div class="film-grain"></div>
-  <div class="scanlines"></div>
+  <div class="hero-visual"></div>
 
-  <div class="relative z-30 min-h-screen">
-    <header class="sticky top-0 border-b border-zinc-800/80 bg-black/60 backdrop-blur-xl">
+  <div class="relative z-10 min-h-screen">
+    <header class="sticky top-0 border-b border-zinc-800/80 bg-black/70 backdrop-blur-xl">
       <nav class="mx-auto flex w-full max-w-7xl items-center justify-between px-6 py-4">
         <div class="flex items-center gap-3">
-          <img src="assets/logo zemin.png" alt="Blueprint Master Seal" class="h-10 w-10 rounded-full border border-zinc-700 object-cover" />
+          <img src="assets/logo zemin.png" alt="MASTER v20.4 Seal" class="h-10 w-10 rounded-full border border-zinc-700 object-cover" />
           <span class="text-xs tracking-[0.28em] text-zinc-300 uppercase">Blueprint Studios</span>
         </div>
-        <div class="hidden items-center gap-8 text-sm md:flex">
-          <a href="#hero" data-i18n="nav.production" class="text-zinc-300 transition hover:text-white"></a>
-          <a href="#architecture" data-i18n="nav.services" class="text-zinc-300 transition hover:text-white"></a>
-          <a href="#originals" data-i18n="nav.portfolio" class="text-zinc-300 transition hover:text-white"></a>
-          <a href="#pricing" data-i18n="nav.pricing" class="text-zinc-300 transition hover:text-white"></a>
-          <a href="#pricing" data-i18n="nav.plansCta" class="rounded-full border border-blue-400/50 px-3 py-1 text-blue-200 transition hover:border-blue-300 hover:text-white"></a>
+        <div class="hidden items-center gap-7 text-sm md:flex">
+          <a href="#hero" data-i18n="nav.product" class="text-zinc-300 transition hover:text-white"></a>
+          <a href="#about" data-i18n="nav.about" class="text-zinc-300 transition hover:text-white"></a>
+          <a href="#pricing" data-i18n="nav.plans" class="rounded-full border border-blue-400/50 px-3 py-1 text-blue-200 transition hover:border-blue-300 hover:text-white"></a>
         </div>
         <button id="langToggle" class="rounded-full border border-zinc-600 px-3 py-1 text-xs tracking-wide transition hover:border-zinc-300">TR / EN</button>
       </nav>
@@ -114,79 +66,48 @@
       <section id="hero" class="mx-auto w-full max-w-7xl px-6 pb-20 pt-16 md:pt-24">
         <div class="max-w-4xl">
           <p data-i18n="hero.kicker" class="mb-4 text-xs tracking-[0.24em] text-zinc-400 uppercase"></p>
-          <h1 data-i18n="hero.title" class="text-4xl font-semibold leading-tight text-white md:text-6xl"></h1>
+          <h1 data-i18n="hero.title" class="text-4xl font-extrabold leading-tight text-white md:text-6xl"></h1>
           <p data-i18n="hero.subtitle" class="mt-5 max-w-3xl text-lg leading-relaxed text-zinc-300"></p>
-          <div class="mt-7 flex flex-wrap gap-2 text-xs tracking-[0.18em] text-zinc-400 uppercase">
-            <span>FPS: 24</span>
-            <span>|</span>
-            <span>LOG: C4</span>
-            <span>|</span>
-            <span>RES: 4.6K</span>
-          </div>
         </div>
       </section>
 
-      <section id="architecture" class="mx-auto w-full max-w-7xl px-6 pb-14">
-        <div class="glass architecture-shell rounded-3xl p-6 md:p-8">
-          <h2 data-i18n="architecture.title" class="text-2xl font-semibold text-white md:text-3xl"></h2>
-          <p data-i18n="architecture.subtitle" class="mt-3 max-w-3xl text-sm leading-relaxed text-zinc-300"></p>
-          <div class="mt-7 grid gap-4 md:grid-cols-[1fr_auto_1fr_auto_1fr] md:items-center">
-            <div class="glass rounded-2xl p-4">
-              <p data-i18n="architecture.inputTitle" class="text-xs tracking-[0.2em] text-blue-300 uppercase"></p>
-              <p data-i18n="architecture.inputBody" class="mt-2 text-sm text-zinc-200"></p>
-            </div>
-            <div class="text-center text-blue-300">-></div>
-            <div class="glass rounded-2xl p-4 text-center">
-              <img src="assets/logo zemin.png" alt="System Core" class="mx-auto h-14 w-14 rounded-full border border-blue-400/40 object-cover" />
-              <p data-i18n="architecture.coreTitle" class="mt-3 text-xs tracking-[0.2em] text-blue-300 uppercase"></p>
-              <p data-i18n="architecture.coreBody" class="mt-2 text-sm text-zinc-200"></p>
-            </div>
-            <div class="text-center text-blue-300">-></div>
-            <div class="glass rounded-2xl p-4">
-              <p data-i18n="architecture.outputTitle" class="text-xs tracking-[0.2em] text-blue-300 uppercase"></p>
-              <p data-i18n="architecture.outputBody" class="mt-2 text-sm text-zinc-200"></p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="originals" class="mx-auto w-full max-w-7xl px-6 pb-14">
-        <div class="glass rounded-3xl p-6 md:p-8">
-          <h2 data-i18n="originals.title" class="text-2xl font-semibold text-white md:text-3xl"></h2>
-          <p data-i18n="originals.subtitle" class="mt-3 max-w-3xl text-sm text-zinc-300"></p>
-          <div class="mt-6 grid gap-4 md:grid-cols-3">
-            <div class="cinema-frame rounded-2xl p-4">
-              <p class="text-xs tracking-[0.2em] text-zinc-400 uppercase">Shot 01</p>
-            </div>
-            <div class="cinema-frame rounded-2xl p-4">
-              <p class="text-xs tracking-[0.2em] text-zinc-400 uppercase">Shot 02</p>
-            </div>
-            <div class="cinema-frame rounded-2xl p-4">
-              <p class="text-xs tracking-[0.2em] text-zinc-400 uppercase">Shot 03</p>
-            </div>
-          </div>
+      <section id="about" class="mx-auto w-full max-w-7xl px-6 pb-14">
+        <h2 data-i18n="about.title" class="mb-6 text-2xl font-semibold text-white md:text-3xl"></h2>
+        <div class="grid gap-5 md:grid-cols-3">
+          <article class="glass-card rounded-2xl p-6">
+            <h3 class="text-lg text-white">BlueCore AI</h3>
+            <p data-i18n="about.bluecore" class="mt-3 text-sm leading-relaxed text-zinc-300"></p>
+          </article>
+          <article class="glass-card rounded-2xl p-6">
+            <h3 class="text-lg text-white">Metadata Management</h3>
+            <p data-i18n="about.metadata" class="mt-3 text-sm leading-relaxed text-zinc-300"></p>
+          </article>
+          <article class="glass-card rounded-2xl p-6">
+            <h3 class="text-lg text-white">Production OS</h3>
+            <p data-i18n="about.production" class="mt-3 text-sm leading-relaxed text-zinc-300"></p>
+          </article>
         </div>
       </section>
 
       <section id="pricing" class="mx-auto w-full max-w-7xl px-6 pb-16">
         <h2 data-i18n="pricing.title" class="mb-6 text-2xl font-semibold text-white md:text-3xl"></h2>
         <div class="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
-          <article class="glass rounded-2xl p-6 transition duration-500 hover:-translate-y-1">
+          <article class="glass-card rounded-2xl p-6">
             <p data-i18n="pricing.studentLabel" class="text-sm tracking-[0.2em] text-blue-300 uppercase"></p>
             <p class="mt-2 text-xl text-white">$9.99/mo</p>
             <p data-i18n="pricing.studentDesc" class="mt-3 text-sm leading-relaxed text-zinc-300"></p>
           </article>
-          <article class="glass rounded-2xl p-6 transition duration-500 hover:-translate-y-1">
+          <article class="glass-card rounded-2xl p-6">
             <p data-i18n="pricing.standardLabel" class="text-sm tracking-[0.2em] text-blue-300 uppercase"></p>
             <p class="mt-2 text-xl text-white">$29/mo</p>
             <p data-i18n="pricing.standardDesc" class="mt-3 text-sm leading-relaxed text-zinc-300"></p>
           </article>
-          <article class="glass rounded-2xl p-6 transition duration-500 hover:-translate-y-1">
+          <article class="glass-card rounded-2xl p-6">
             <p data-i18n="pricing.proLabel" class="text-sm tracking-[0.2em] text-blue-300 uppercase"></p>
             <p class="mt-2 text-xl text-white">$99/mo</p>
             <p data-i18n="pricing.proDesc" class="mt-3 text-sm leading-relaxed text-zinc-300"></p>
           </article>
-          <article class="glass rounded-2xl p-6 transition duration-500 hover:-translate-y-1">
+          <article class="glass-card rounded-2xl p-6">
             <p data-i18n="pricing.businessLabel" class="text-sm tracking-[0.2em] text-blue-300 uppercase"></p>
             <p class="mt-2 text-xl text-white">Custom</p>
             <p data-i18n="pricing.businessDesc" class="mt-3 text-sm leading-relaxed text-zinc-300"></p>
@@ -194,67 +115,60 @@
         </div>
       </section>
     </main>
+
+    <footer class="mx-auto w-full max-w-7xl border-t border-zinc-800 px-6 py-8">
+      <div class="flex items-center justify-between gap-4">
+        <p data-i18n="footer.tagline" class="text-xs text-zinc-400"></p>
+        <img src="assets/logo zemin.png" alt="MASTER v20.4 Signature Seal" class="h-10 w-10 rounded-full border border-zinc-700 object-cover" />
+      </div>
+    </footer>
   </div>
 
   <script>
     const i18n = {
       tr: {
-        "nav.production": "Production OS / MASTER v20.4",
-        "nav.services": "Hizmetler",
-        "nav.portfolio": "Portfolyo",
-        "nav.pricing": "Fiyatlandırma",
-        "nav.plansCta": "Planlar",
-        "hero.kicker": "Blueprint Film Production OS",
+        "nav.product": "MASTER v20.4",
+        "nav.about": "Bu Nedir?",
+        "nav.plans": "Planlar",
+        "hero.kicker": "Professional Film Production OS",
         "hero.title": "MASTER v20.4: CINEMATIC OPERATING SYSTEM",
-        "hero.subtitle": "Sinematik Sanatın geleceğini, veri odaklı prodüksiyon operasyonlarıyla birleştiren profesyonel üretim işletim sistemi.",
-        "architecture.title": "What is it?",
-        "architecture.subtitle": "Teknik akış şeması: sahadan gelen girdileri işleyip fiziksel devamlılığı korunmuş sinematik finale dönüştüren üretim çekirdeği.",
-        "architecture.inputTitle": "Input",
-        "architecture.inputBody": "Senaryo ve Ham Görüntü (ARRI LogC4)",
-        "architecture.coreTitle": "System Core",
-        "architecture.coreBody": "MASTER v20.4 Engine + BlueCore AI Analysis",
-        "architecture.outputTitle": "Output",
-        "architecture.outputBody": "Fiziksel Devamlılığı Tamamlanmış, Sinematik Final",
-        "originals.title": "Blueprint Originals",
-        "originals.subtitle": "2.39:1 sinematik oranında proje vitrin alanları.",
+        "hero.subtitle": "Sinematik Sanatın üretim disiplinini, teknik kesinlik ve hızla birleştiren prestijli prodüksiyon işletim sistemi.",
+        "about.title": "Bu Nedir?",
+        "about.bluecore": "Fiziksel dünyadaki her objeyi her karede mühürler.",
+        "about.metadata": "ARRI Alexa 35 verilerini anlık işler.",
+        "about.production": "24 yıllık tecrübeyle tüm süreci yönetir.",
         "pricing.title": "Planlar",
         "pricing.studentLabel": "Öğrenci",
-        "pricing.studentDesc": "Geleceğin Yönetmenleri. Master v20.4 Core, 1080p Export, Temel AI Continuity Check.",
+        "pricing.studentDesc": "1080p Export, Core v20.4 Access.",
         "pricing.standardLabel": "Standart",
-        "pricing.standardDesc": "Bağımsız Yapımlar. 4K Export, BlueCore AI Full Integration, Storyboard Automation.",
+        "pricing.standardDesc": "4K Workflow, BlueCore AI Integration.",
         "pricing.proLabel": "Pro",
-        "pricing.proDesc": "Profesyonel Setler. Arri LogC4 Workflow, 8K Support, Advanced Physical Continuity Lock, 24/7 Render Priority.",
+        "pricing.proDesc": "8K Render, Arri LogC4 Workflow, VIP Support.",
         "pricing.businessLabel": "Business",
-        "pricing.businessDesc": "Büyük Stüdyolar. Unlimited Render, Custom AI Training, Studio-wide License, On-site Support."
+        "pricing.businessDesc": "Stüdyo Lisansları.",
+        "footer.tagline": "Blueprint Studios | MASTER v20.4 Signature Seal"
       },
       en: {
-        "nav.production": "Production OS / MASTER v20.4",
-        "nav.services": "Services",
-        "nav.portfolio": "Portfolio",
-        "nav.pricing": "Pricing",
-        "nav.plansCta": "Plans",
-        "hero.kicker": "Blueprint Film Production OS",
+        "nav.product": "MASTER v20.4",
+        "nav.about": "What Is It?",
+        "nav.plans": "Plans",
+        "hero.kicker": "Professional Film Production OS",
         "hero.title": "MASTER v20.4: CINEMATIC OPERATING SYSTEM",
-        "hero.subtitle": "A professional production operating system that unifies the future of cinematic art with data-driven studio operations.",
-        "architecture.title": "What is it?",
-        "architecture.subtitle": "Technical flow: transforming field inputs into a physically consistent cinematic final through a unified production core.",
-        "architecture.inputTitle": "Input",
-        "architecture.inputBody": "Script and Raw Footage (ARRI LogC4)",
-        "architecture.coreTitle": "System Core",
-        "architecture.coreBody": "MASTER v20.4 Engine + BlueCore AI Analysis",
-        "architecture.outputTitle": "Output",
-        "architecture.outputBody": "Physically Consistent Cinematic Final",
-        "originals.title": "Blueprint Originals",
-        "originals.subtitle": "Project showcase placeholders in cinematic 2.39:1 frame ratio.",
+        "hero.subtitle": "A prestigious production operating system that unifies the discipline of cinematic art with technical precision and speed.",
+        "about.title": "What Is It?",
+        "about.bluecore": "Seals every physical object consistently across every frame.",
+        "about.metadata": "Processes ARRI Alexa 35 metadata in real time.",
+        "about.production": "Manages the full pipeline with 24 years of expertise.",
         "pricing.title": "Pricing",
         "pricing.studentLabel": "Student",
-        "pricing.studentDesc": "Directors of Tomorrow. Master v20.4 Core, 1080p Export, Basic AI Continuity Check.",
+        "pricing.studentDesc": "1080p Export, Core v20.4 Access.",
         "pricing.standardLabel": "Standard",
-        "pricing.standardDesc": "Independent Productions. 4K Export, BlueCore AI Full Integration, Storyboard Automation.",
+        "pricing.standardDesc": "4K Workflow, BlueCore AI Integration.",
         "pricing.proLabel": "Pro",
-        "pricing.proDesc": "Professional Sets. Arri LogC4 Workflow, 8K Support, Advanced Physical Continuity Lock, 24/7 Render Priority.",
+        "pricing.proDesc": "8K Render, Arri LogC4 Workflow, VIP Support.",
         "pricing.businessLabel": "Business",
-        "pricing.businessDesc": "Large Studios. Unlimited Render, Custom AI Training, Studio-wide License, On-site Support."
+        "pricing.businessDesc": "Studio Licenses.",
+        "footer.tagline": "Blueprint Studios | MASTER v20.4 Signature Seal"
       }
     };
 
@@ -270,10 +184,6 @@
     const toggle = document.getElementById("langToggle");
     let lang = "tr";
     applyLanguage(lang);
-    window.addEventListener("scroll", () => {
-      const shift = Math.min(window.scrollY * 0.12, 60);
-      document.documentElement.style.setProperty("--hero-shift", `${shift}px`);
-    });
     toggle.addEventListener("click", () => {
       lang = lang === "tr" ? "en" : "tr";
       applyLanguage(lang);
